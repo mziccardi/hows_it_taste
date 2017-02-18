@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SignIn from './SignIn'
+import firebase, {reference, signIn, signOut} from '../firebase';
 
 class App extends Component {
   constructor(){
@@ -43,6 +45,7 @@ class App extends Component {
         </div>
         <button onClick={this.debugg.bind(this)}></button>
         <button onClick={this.call.bind(this)}>Work?</button>
+        <SignIn signIn={signIn} />
       </div>
     );
   }
