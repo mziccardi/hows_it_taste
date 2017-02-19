@@ -8,19 +8,26 @@ class App extends Component {
     this.state = {
       lat:'',
       long:'',
-      user:'',
+      user: null,
       places:{},
     }
   }
 
   componentDidMount(){
     navigator.geolocation.getCurrentPosition((position)=>{
-      this.setState({lat:position.coords.latitude, long:position.coords.longitude})
-      console.log(position.coords.latitude)
+      let newLat = parseFloat(Math.round(position.coords.latitude*100)/100).toFixed(2)
+      let workingLat = parseFloat(newLat)
+      let newLong = parseFloat(Math.round(position.coords.longitude*100)/100).toFixed(2)
+      let workingLong = parseFloat(newLong)
+      console.log(workingLat)
+      console.log(workingLong)
+      this.setState({lat:workingLat, long:workingLong})
+
     })
+    firebase.auth().onAuthStateChanged(user=> this.setState({ user }))
   }
   call(){
-    const places = 'https://developers.zomato.com/api/v2.1/search?q=denver'
+    const places = `https://developers.zomato.com/api/v2.1/search?lat=${this.state.lat}&lon=${this.state.long}`
     fetch(places,{
       headers:{
         Accept: 'application/json',
@@ -38,14 +45,18 @@ class App extends Component {
     debugger
   }
   render() {
+    const { places } = this.state
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to React</h2>
+          <h1>How's it taste</h1>
+          {!this.state.user ?
+          <h2>Welcome, Please Sign in</h2> :
+          <h2>Welcome {this.state.user.displayName}</h2>}
         </div>
         <button onClick={this.debugg.bind(this)}></button>
-        <button onClick={this.call.bind(this)}>Work?</button>
-        <SignIn signIn={signIn} />
+        <button onClick={()=>this.call()}>Work?</button>
+
       </div>
     );
   }
