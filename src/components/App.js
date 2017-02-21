@@ -41,26 +41,23 @@ class App extends Component {
       this.setState({places: data})
     })
   }
-  debugg(){
-    debugger
-  }
   render() {
     const { places } = this.state
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1>How's it taste</h1>
-          {this.state.user ?
-            <HomeScreen
-            user={this.state.user} /> :
-            <WelcomeScreen/>}
-        </div>
-        <button onClick={this.debugg.bind(this)}></button>
-        <button onClick={()=>this.call()}>Work?</button>
-
+      <div className='app'>
+      <div className = 'app-header'>
+        <h1>How's It Taste?</h1>
       </div>
-    );
+
+      {React.cloneElement(this.props.children,{
+        lat:this.state.lat,
+        long:this.state.long,
+        places:this.state.places,
+        user:this.state.user,
+        call:this.call.bind(this)
+      })}
+    </div>
+    )
   }
 }
-
 export default App;
