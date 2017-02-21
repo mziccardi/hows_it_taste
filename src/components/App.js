@@ -27,6 +27,7 @@ class App extends Component {
     firebase.auth().onAuthStateChanged(user=> this.setState({ user }))
   }
   call(){
+    console.log('hit call');
     const places = `https://developers.zomato.com/api/v2.1/search?lat=${this.state.lat}&lon=${this.state.long}`
     fetch(places,{
       headers:{

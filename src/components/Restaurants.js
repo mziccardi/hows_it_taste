@@ -4,21 +4,29 @@ import {Link} from 'react-router'
 import firebase, { signOut } from '../firebase';
 
 class Restaurants extends Component {
+  debug(){
+    debugger
+  }
 
   render(){
+    if (!this.props.places.restaurants) {
+      return <div>I DONT EXIST </div>;
+    }
+
     let restaurant = this.props.places.restaurants.map((restaurant)=>{
       return(
         <li key={restaurant.id}
           className='single-restaurant'>
-          {restaurant.name}
+          {restaurant.restaurant.name}
         </li>
       )
     })
     return (
       <div className='restaurants-page'>
-        <ul>
-          {restaurant}
-        </ul>
+      <ul>
+         {restaurant}
+      </ul>
+      <button onClick = {()=>this.debug()}> debugger </button>
       </div>
     );
   }
