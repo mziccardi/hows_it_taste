@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import firebase, { signOut } from '../firebase';
 
-class SignOut extends Component {
+class HomeScreen extends Component {
   render(){
     return (
-    <div className="sign-out-page">
+    <div className="home-page">
+      <h3>Welcome back {this.props.user.displayName}</h3>
       <button
         className='sign-out'
-        onClick={() => this.props.signOut()}>
+        onClick={() => signOut()}>
         SIGN OUT
       </button>
     </div>
@@ -16,4 +17,4 @@ class SignOut extends Component {
   }
 }
 
-module.exports = SignOut
+module.exports = HomeScreen

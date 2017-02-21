@@ -17,4 +17,4 @@ const provider = new firebase.auth.GoogleAuthProvider();
 export default firebase;
 export const signIn = () => auth.signInWithPopup(provider);
 export const signOut = () => auth.signOut();
-// export const reference = firebase.database().ref();
+export const reference = firebase.database().ref();
