@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SignIn from './SignIn'
+
 import firebase, {reference, signIn, signOut} from '../firebase';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
       places:{},
     }
   }
+  // TODO: change signin component to welcomeScreen, Change signOut component to homescreen. 
 
   componentDidMount(){
     navigator.geolocation.getCurrentPosition((position)=>{
