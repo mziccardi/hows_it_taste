@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import WelcomeScreen from './WelcomeScreen'
+import HomeScreen from './HomeScreen'
+import firebase, {reference, signIn, signOut} from '../firebase';
 
 class App extends Component {
   constructor(){
@@ -6,19 +9,25 @@ class App extends Component {
     this.state = {
       lat:'',
       long:'',
-      user:'',
+      user: null,
       places:{},
     }
   }
-
   componentDidMount(){
     navigator.geolocation.getCurrentPosition((position)=>{
-      this.setState({lat:position.coords.latitude, long:position.coords.longitude})
-      console.log(position.coords.latitude)
+      let newLat = parseFloat(Math.round(position.coords.latitude*100)/100).toFixed(2)
+      let workingLat = parseFloat(newLat)
+      let newLong = parseFloat(Math.round(position.coords.longitude*100)/100).toFixed(2)
+      let workingLong = parseFloat(newLong)
+      console.log(workingLat)
+      console.log(workingLong)
+      this.setState({lat:workingLat, long:workingLong})
+
     })
+    firebase.auth().onAuthStateChanged(user=> this.setState({ user }))
   }
   call(){
-    const places = 'https://developers.zomato.com/api/v2.1/search?q=denver'
+    const places = `https://developers.zomato.com/api/v2.1/search?lat=${this.state.lat}&lon=${this.state.long}`
     fetch(places,{
       headers:{
         Accept: 'application/json',
@@ -28,24 +37,33 @@ class App extends Component {
     .then((response)=>{
       return response.json()
     }).then((data)=>{
-      console.log(data)
-      this.setState({places: data})
+      let array = data.restaurants
+      let placeArray = array.map((restaurant)=>{
+        return restaurant.restaurant.id
+      })
+        // console.log(placeArray)
+      // console.log(data.restaurants.map)
+      this.setState({places: data })
     })
   }
-  debugg(){
-    debugger
-  }
   render() {
+    const { places } = this.state
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <button onClick={this.debugg.bind(this)}></button>
-        <button onClick={this.call.bind(this)}>Work?</button>
+      <div className='app'>
+      <div className = 'app-header'>
+        <h1>How's It Taste?</h1>
       </div>
-    );
+
+      {React.cloneElement(this.props.children,{
+        lat:this.state.lat,
+        long:this.state.long,
+        places:this.state.places,
+        user:this.state.user,
+        restaurantID:this.state.restaurantID,
+        call:this.call.bind(this)
+      })}
+    </div>
+    )
   }
 }
-
 export default App;
