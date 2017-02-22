@@ -10,14 +10,15 @@ class Restaurants extends Component {
 
   render(){
     if (!this.props.places.restaurants) {
-      return <div>I DONT EXIST </div>;
+      return <div className='loading'>Loading...</div>;
     }
 
     let restaurant = this.props.places.restaurants.map((restaurant)=>{
       return(
         <li key={restaurant.id}
           className='single-restaurant'>
-          {restaurant.restaurant.name}
+          {restaurant.restaurant.name} <br />
+          {restaurant.restaurant.location.address}<br/>
         </li>
       )
     })

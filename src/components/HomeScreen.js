@@ -6,6 +6,9 @@ import firebase, { signOut } from '../firebase';
 class HomeScreen extends Component {
 
   render(){
+    if(!this.props.user){
+      return <div className='loading'>Loading...</div>
+    }
     return (
     <div className="home-page">
       <h3>Welcome back {this.props.user.displayName}</h3>
