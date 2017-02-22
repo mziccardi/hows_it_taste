@@ -11,7 +11,6 @@ class App extends Component {
       long:'',
       user: null,
       places:{},
-      restaurantID: ''
     }
   }
   componentDidMount(){
@@ -42,9 +41,9 @@ class App extends Component {
       let placeArray = array.map((restaurant)=>{
         return restaurant.restaurant.id
       })
-        console.log(placeArray)
+        // console.log(placeArray)
       // console.log(data.restaurants.map)
-      this.setState({places: data, restaurantID:placeArray})
+      this.setState({places: data })
     })
   }
   render() {
