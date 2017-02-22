@@ -11,6 +11,7 @@ class App extends Component {
       long:'',
       user: null,
       places:{},
+      restaurantID: '',
     }
   }
   componentDidMount(){
@@ -37,14 +38,12 @@ class App extends Component {
     .then((response)=>{
       return response.json()
     }).then((data)=>{
-      let array = data.restaurants
-      let placeArray = array.map((restaurant)=>{
-        return restaurant.restaurant.id
-      })
-        // console.log(placeArray)
-      // console.log(data.restaurants.map)
       this.setState({places: data })
     })
+  }
+  setIdState(e){
+    console.log(e.target.id)
+    this.setState({restaurantID:e.target.id})
   }
   render() {
     const { places } = this.state
@@ -60,7 +59,9 @@ class App extends Component {
         places:this.state.places,
         user:this.state.user,
         restaurantID:this.state.restaurantID,
-        call:this.call.bind(this)
+        call:this.call.bind(this),
+        restaurantID:this.state.restaurantID,
+        setIdState:this.setIdState.bind(this)
       })}
     </div>
     )

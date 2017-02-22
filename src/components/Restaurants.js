@@ -4,18 +4,10 @@ import {Link} from 'react-router'
 import firebase, { signOut } from '../firebase';
 
 class Restaurants extends Component {
-  constructor(){
-    super()
-      this.state = {
-        restaurantID: ''
-      }
-    }
+
 
   debug(){
     debugger
-  }
-  setID(e){
-    this.setState({restaurantID:e.target.id})
   }
 
   render(){
@@ -26,7 +18,7 @@ class Restaurants extends Component {
 
     let restaurant = this.props.places.restaurants.map((restaurant)=>{
       return(
-        <li onClick = {(e)=>this.setID(e)}
+        <li onClick = {(e)=>this.props.setIdState(e)}
           key={restaurant.restaurant.id}
           id={restaurant.restaurant.id}
           className='single-restaurant'>
@@ -39,7 +31,9 @@ class Restaurants extends Component {
     return (
       <div className='restaurants-page'>
       <ul>
+        <Link to='/restaurant'>
          {restaurant}
+        </Link>
       </ul>
       <button onClick = {()=>this.debug()}> debugger </button>
       </div>
