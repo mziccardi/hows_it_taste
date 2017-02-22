@@ -11,6 +11,7 @@ class App extends Component {
       long:'',
       user: null,
       places:{},
+      restaurantID: ''
     }
   }
   componentDidMount(){
@@ -27,7 +28,6 @@ class App extends Component {
     firebase.auth().onAuthStateChanged(user=> this.setState({ user }))
   }
   call(){
-    console.log('hit call');
     const places = `https://developers.zomato.com/api/v2.1/search?lat=${this.state.lat}&lon=${this.state.long}`
     fetch(places,{
       headers:{
@@ -38,8 +38,13 @@ class App extends Component {
     .then((response)=>{
       return response.json()
     }).then((data)=>{
-      console.log(data)
-      this.setState({places: data})
+      let array = data.restaurants
+      let placeArray = array.map((restaurant)=>{
+        return restaurant.restaurant.id
+      })
+        console.log(placeArray)
+      // console.log(data.restaurants.map)
+      this.setState({places: data, restaurantID:placeArray})
     })
   }
   render() {
@@ -55,6 +60,7 @@ class App extends Component {
         long:this.state.long,
         places:this.state.places,
         user:this.state.user,
+        restaurantID:this.state.restaurantID,
         call:this.call.bind(this)
       })}
     </div>
