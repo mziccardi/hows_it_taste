@@ -49,20 +49,19 @@ class App extends Component {
     const { places } = this.state
     return (
       <div className='app'>
-      <div className = 'app-header'>
-        <h1>How's It Taste?</h1>
-      </div>
-
-      {React.cloneElement(this.props.children,{
-        lat:this.state.lat,
-        long:this.state.long,
-        places:this.state.places,
-        user:this.state.user,
-        restaurantID:this.state.restaurantID,
-        call:this.call.bind(this),
-        restaurantID:this.state.restaurantID,
-        setIdState:this.setIdState.bind(this)
-      })}
+        <div className = 'app-header'>
+          <h1 className='app-title'>How's It Taste?</h1>
+        </div>
+        {React.cloneElement(this.props.children,{
+          lat:this.state.lat,
+          long:this.state.long,
+          places:this.state.places,
+          user:this.state.user,
+          restaurantID:this.state.restaurantID,
+          call:this.call.bind(this),
+          restaurantID:this.state.restaurantID,
+          setIdState:this.setIdState.bind(this)
+        })}
     </div>
     )
   }

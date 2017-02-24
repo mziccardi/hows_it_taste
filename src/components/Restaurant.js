@@ -4,12 +4,18 @@ import { Link } from 'react-router'
 import firebase, { reference, signIn, signOut } from '../firebase';
 
 class Restaurant extends Component {
+  constructor(){
+    super()
+    this.state = {
+      reviews:{}
+    }
+  }
   debug(){
     debugger
   }
 
-  reviews(){
-    const places = `https://developers.zomato.com/api/v2.1/reviews?res_id=${this.props.restaurantID}`
+  componentDidMount(){
+    const places = `https://developers.zomato.com/api/v2.1/reviews?res_id=${this.props.restaurantID}&count=10`
     fetch(places,{
       headers:{
         Accept: 'application/json',
@@ -20,14 +26,27 @@ class Restaurant extends Component {
       return response.json()
     }).then((data)=>{
       console.log(data)
+      this.setState({reviews: data })
       })
-      // this.setState({places: data })
   }
 
   render(){
+    if (!this.state.reviews.user_reviews) {
+      return <div className='loading'>Loading...</div>;
+    }
+
+    let review = this.state.reviews.user_reviews.map((review)=>{
+      return (
+        <li className='single-review'>
+          {review.review.review_text}
+        </li>
+      )
+    })
     return (
       <div>
-      <div onClick = {()=>this.reviews()}>Hello</div>
+      <ul className='single-review'>
+        {review}
+      </ul>
       <button onClick={()=>this.debug()}></button>
     </div>
     )

@@ -18,6 +18,7 @@ class Restaurants extends Component {
 
     let restaurant = this.props.places.restaurants.map((restaurant)=>{
       return(
+      <Link to ='/restaurant'>
         <li onClick = {(e)=>this.props.setIdState(e)}
           key={restaurant.restaurant.id}
           id={restaurant.restaurant.id}
@@ -25,16 +26,17 @@ class Restaurants extends Component {
           {restaurant.restaurant.name} <br />
           {restaurant.restaurant.location.address}<br/>
         </li>
+      </Link>
       )
 
     })
     return (
       <div className='restaurants-page'>
-      <ul>
-        <Link to='/restaurant'>
+        <div className ='restaurant-container'>
+      <ul  className='restaurant-list'>
          {restaurant}
-        </Link>
       </ul>
+      </div>
       <button onClick = {()=>this.debug()}> debugger </button>
       </div>
     );

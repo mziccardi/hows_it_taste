@@ -8,6 +8,7 @@ import Restaurant from './components/Restaurant'
 import { Router, Route, IndexRoute, browserHistory} from 'react-router'
 
 import App from './components/App';
+import './reset.css';
 import './index.css';
 
 
