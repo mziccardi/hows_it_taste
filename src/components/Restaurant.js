@@ -7,12 +7,24 @@ class Restaurant extends Component {
   constructor(){
     super()
     this.state = {
-      reviews:{}
+      reviews:{},
+      // notes:'',
+      // favorite:false,
+
     }
   }
   debug(){
     debugger
   }
+
+
+  // favorite(){
+  //   reference.push({
+  //     restaurantID:this.props.restaurantID,
+  //     favorite:!this.state.favorite,
+  //     name:this.props.singleName,
+  //   })
+  // }
 
   componentDidMount(){
     const places = `https://developers.zomato.com/api/v2.1/reviews?res_id=${this.props.restaurantID}&count=10`
@@ -44,7 +56,11 @@ class Restaurant extends Component {
     })
     return (
       <div>
-      <ul className='single-review'>
+        <div>
+        <h1 className='restaurant-name'>{this.props.singleName}</h1>
+        <button onClick={(e)=>this.props.favorite(e)}>Favorite?</button>
+        </div>
+      <ul>
         {review}
       </ul>
       <button onClick={()=>this.debug()}></button>

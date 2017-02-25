@@ -20,7 +20,7 @@ const router = (
     <Route path = '/welcome' component={WelcomeScreen}/>
     <Route path = '/home' component = {HomeScreen} />
     <Route path = '/restaurants' component = {Restaurants} />
-    <Route path = '/restaurant' component = {Restaurant} />
+    <Route path = '/restaurant/reviews' component = {Restaurant} />
       </Route>
   </Router>
 )

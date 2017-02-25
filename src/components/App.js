@@ -12,6 +12,9 @@ class App extends Component {
       user: null,
       places:{},
       restaurantID: '',
+      singleName:'',
+      notes:'',
+      favorite:false,
     }
   }
   componentDidMount(){
@@ -42,8 +45,15 @@ class App extends Component {
     })
   }
   setIdState(e){
-    console.log(e.target.id)
-    this.setState({restaurantID:e.target.id})
+    console.log(e.target.className)
+    this.setState({restaurantID:e.target.id, singleName:e.target.className})
+  }
+  favorite(e){
+    reference.push({
+      restaurantID:this.state.restaurantID,
+      favorite:!this.state.favorite,
+      name:this.state.singleName,
+    })
   }
   render() {
     const { places } = this.state
@@ -60,7 +70,9 @@ class App extends Component {
           restaurantID:this.state.restaurantID,
           call:this.call.bind(this),
           restaurantID:this.state.restaurantID,
-          setIdState:this.setIdState.bind(this)
+          setIdState:this.setIdState.bind(this),
+          singleName:this.state.singleName,
+          favorite:this.favorite.bind(this)
         })}
     </div>
     )

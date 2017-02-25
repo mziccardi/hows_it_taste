@@ -32,4 +32,14 @@ body{
 }
 .single-review{
   margin-bottom: 10px;
+  text-align: center;
+  margin: 10px;
+  padding:10px;
+  border-style: solid;
+  border-width: thin;
+}
+.restaurant-name{
+  text-align: center;
+  margin: 20px 0;
+  font-size: 32px;
 }
