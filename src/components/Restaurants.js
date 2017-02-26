@@ -15,6 +15,7 @@ class Restaurants extends Component {
     if (!this.props.places.restaurants) {
       return <div className='loading'>Loading...</div>;
     }
+    
 
     let restaurant = this.props.places.restaurants.map((restaurant)=>{
       return(

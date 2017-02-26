@@ -14,7 +14,8 @@ class App extends Component {
       restaurantID: '',
       singleName:'',
       notes:'',
-      favorite:false,
+      noteHolder:[],
+      favoritePlace:false,
     }
   }
   componentDidMount(){
@@ -49,9 +50,26 @@ class App extends Component {
     this.setState({restaurantID:e.target.id, singleName:e.target.className})
   }
   favorite(e){
-    reference.push({
+    if(this.state.favoritePlace === false){
+      reference.ref('favorite').push({
+        restaurantID:this.state.restaurantID,
+        favorite:!this.state.favorite,
+        name:this.state.singleName,
+      })
+      this.setState({favoritePlace:true})
+    }else{
+      this.setState({favoritePlace:false})
+    }
+  }
+  createNote(e){
+  const note = e.target.value
+  this.setState({ notes:note })
+  this.state.noteHolder.push(this.state.notes)
+  }
+  addNotes(e){
+    reference.ref('notes').push({
       restaurantID:this.state.restaurantID,
-      favorite:!this.state.favorite,
+      notes:this.state.notes,
       name:this.state.singleName,
     })
   }
@@ -72,7 +90,12 @@ class App extends Component {
           restaurantID:this.state.restaurantID,
           setIdState:this.setIdState.bind(this),
           singleName:this.state.singleName,
-          favorite:this.favorite.bind(this)
+          favorite:this.favorite.bind(this),
+          favoritePlace:this.state.favoritePlace,
+          createNote:this.createNote.bind(this),
+          // notes:this.state.notes,
+          // noteHolder:this.state.noteHolder,
+          addNotes:this.addNotes.bind(this)
         })}
     </div>
     )
