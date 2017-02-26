@@ -16,6 +16,8 @@ class App extends Component {
       notes:'',
       noteHolder:[],
       favoritePlace:false,
+      favoriteName:'',
+      favoritePlaces:[]
     }
   }
   componentDidMount(){
@@ -56,7 +58,9 @@ class App extends Component {
         favorite:!this.state.favorite,
         name:this.state.singleName,
       })
-      this.setState({favoritePlace:true})
+      this.setState({favoriteName:this.state.singleName})
+       this.state.favoritePlaces.push(this.state.singleName)
+      console.log(this.state.favoritePlaces)
     }else{
       this.setState({favoritePlace:false})
     }
@@ -92,6 +96,8 @@ class App extends Component {
           singleName:this.state.singleName,
           favorite:this.favorite.bind(this),
           favoritePlace:this.state.favoritePlace,
+          favoritePlaces:this.state.favoritePlaces,
+          favoriteName:this.state.favoriteName,
           createNote:this.createNote.bind(this),
           // notes:this.state.notes,
           // noteHolder:this.state.noteHolder,
