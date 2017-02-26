@@ -7,13 +7,15 @@ class WelcomeScreen extends Component {
   render(){
     return (
     <div className="welcome-page">
-      <h2>Welcome Please Sign in</h2>
+      <h2 className='welcome' >Welcome Please Sign in!</h2>
       <Link to='/home'>
+      <div className='sign-in-container'>
       <button
         className='sign-in'
         onClick={() => signIn()}>
         SIGN IN
       </button>
+    </div>
     </Link>
     </div>
     );

@@ -1,11 +1,11 @@
 body{
-  background-color:#ffffff;
+  background-color:#F2F2F0;
+  /*#BFF4ED;*/
 }
 .app-header{
   width: 100%;
   background-color:  #57bc90;
   color:#555555;
-  /*color: #77c9d4;*/
   height: 100px;
   display: flex;
   justify-content: center;
@@ -13,6 +13,63 @@ body{
 }
 .app-title{
   font-size: 48px;
+}
+.sign-in-container{
+  display: flex;
+  justify-content: center;
+}
+.home{
+  margin-top: 25px;
+  text-align: center;
+  font-size:24px;
+
+}
+.get-container{
+  display: flex;
+  justify-content: center;
+}
+.get-restaurants{
+  height: 43px;
+  width: 210px;
+  margin-top: 20px;
+  border: none;
+}
+.get-restaurants:hover{
+  background-color: #1B3C59;
+  color: white;
+}
+
+.sign-out{
+  border: none;
+  position: absolute;
+  top: 68px;
+  right: 10px;
+  height: 30px;
+  width: 83px;
+}
+.sign-out:hover{
+  background-color: #1B3C59;
+  color: white;
+}
+.sign-in:hover{
+  background-color: #1B3C59;
+  color: white;
+}
+.sign-in{
+  border: none;
+  margin-top: 15%;
+  height: 43px;
+  width: 83px;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+.welcome{
+  margin: 10px 0;
+  font-size: 24px;
+  text-align: center;
+
 }
 .restaurant-list{
   display:flex;
@@ -23,6 +80,7 @@ body{
 
 }
 .single-restaurant{
+  background-color:#BFF4ED;
   flex-grow: 1;
   text-align: center;
   margin: 10px;

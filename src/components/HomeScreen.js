@@ -11,7 +11,7 @@ class HomeScreen extends Component {
     }
     return (
     <div className="home-page">
-      <h3>Welcome back {this.props.user.displayName}</h3>
+      <h3 className = 'home'>Welcome back {this.props.user.displayName}</h3>
       <Link to='/welcome'>
       <button
         className='sign-out'
@@ -20,7 +20,9 @@ class HomeScreen extends Component {
       </button>
     </Link>
     <Link to='/restaurants'>
-      <button onClick={()=>this.props.call()}>Get Restaurants</button>
+      <div className = 'get-container'>
+        <button className='get-restaurants' onClick={()=>this.props.call()}>Hungry? Find Restaurants!</button>
+      </div>
     </Link>
     </div>
     );

@@ -5,17 +5,12 @@ import firebase, { signOut } from '../firebase';
 
 class Restaurants extends Component {
 
-
-  debug(){
-    debugger
-  }
-
   render(){
 
     if (!this.props.places.restaurants) {
       return <div className='loading'>Loading...</div>;
     }
-    
+
 
     let restaurant = this.props.places.restaurants.map((restaurant)=>{
       return(
@@ -39,12 +34,16 @@ class Restaurants extends Component {
     })
     return (
       <div className='restaurants-page'>
+        <button
+          className='sign-out'
+          onClick={() => signOut()}>
+          SIGN OUT
+        </button>
         <div className ='restaurant-container'>
       <ul  className='restaurant-list'>
          {restaurant}
       </ul>
       </div>
-      <button onClick = {()=>this.debug()}> debugger </button>
       </div>
     );
   }
