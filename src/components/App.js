@@ -53,7 +53,7 @@ class App extends Component {
   }
   favorite(e){
     if(this.state.favoritePlace === false){
-      reference.ref('favorite').push({
+      reference.ref('users/' +this.state.user.uid).child('favorites').push({
         restaurantID:this.state.restaurantID,
         favorite:!this.state.favorite,
         name:this.state.singleName,
@@ -71,7 +71,8 @@ class App extends Component {
   this.state.noteHolder.push(this.state.notes)
   }
   addNotes(e){
-    reference.ref('notes').push({
+    reference.ref('users/' +this.state.user.uid).child('notes').push({
+      userID:this.state.user.uid,
       restaurantID:this.state.restaurantID,
       notes:this.state.notes,
       name:this.state.singleName,
