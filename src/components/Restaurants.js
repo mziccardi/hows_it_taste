@@ -34,16 +34,19 @@ class Restaurants extends Component {
     })
     return (
       <div className='restaurants-page'>
-        <button
-          className='sign-out'
-          onClick={() => signOut()}>
-          SIGN OUT
-        </button>
+        <Link to='/welcome'>
+          <button
+            className='sign-out'
+            onClick={() => signOut()}>
+            SIGN OUT
+          </button>
+        </Link>
         <div className ='restaurant-container'>
       <ul  className='restaurant-list'>
          {restaurant}
       </ul>
       </div>
+        <Link to='/home'><button>Home</button></Link>
       </div>
     );
   }

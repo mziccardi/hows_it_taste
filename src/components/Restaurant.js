@@ -15,15 +15,6 @@ class Restaurant extends Component {
     debugger
   }
 
-
-  // favorite(){
-  //   reference.push({
-  //     restaurantID:this.props.restaurantID,
-  //     favorite:!this.state.favorite,
-  //     name:this.props.singleName,
-  //   })
-  // }
-
   componentDidMount(){
     const places = `https://developers.zomato.com/api/v2.1/reviews?res_id=${this.props.restaurantID}&count=10`
     fetch(places,{
@@ -57,6 +48,13 @@ class Restaurant extends Component {
     })
     return (
       <div>
+        <Link to='/welcome'>
+          <button
+            className='sign-out'
+            onClick={() => signOut()}>
+            SIGN OUT
+          </button>
+        </Link>
         <div>
         <h1 className='restaurant-name'>{this.props.singleName}</h1>
         {
@@ -64,7 +62,7 @@ class Restaurant extends Component {
         <div></div>
       }
 
-        <button onClick={(e)=>this.props.favorite(e)}>Favorite?</button>
+        <Link to= '/favorites'><button onClick={(e)=>this.props.favorite(e)}>Favorite?</button></Link>
         </div>
       <ul>
         {review}
@@ -72,6 +70,7 @@ class Restaurant extends Component {
       <input onChange = {(e)=>this.props.createNote(e)} placeholder='Add a Note'/>
       <button onClick={(e)=>this.props.addNotes(e)}>Submit</button>
       <button onClick={()=>this.debug()}></button>
+      <Link to='/home'><button>Home</button></Link>
     </div>
     )
   }

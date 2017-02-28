@@ -4,6 +4,8 @@ import WelcomeScreen from './components/WelcomeScreen'
 import HomeScreen from './components/HomeScreen'
 import Restaurants from './components/Restaurants'
 import Restaurant from './components/Restaurant'
+import Favorites from './components/Favorites'
+
 
 import { Router, Route, IndexRoute, browserHistory} from 'react-router'
 
@@ -16,11 +18,11 @@ const router = (
   <Router history = {browserHistory}>
     <Route path = '/' component = {App}>
       <IndexRoute component={WelcomeScreen}/>
-      {/* <IndexRoute component={HomeScreen}/> */}
     <Route path = '/welcome' component={WelcomeScreen}/>
     <Route path = '/home' component = {HomeScreen} />
     <Route path = '/restaurants' component = {Restaurants} />
     <Route path = '/restaurant/reviews' component = {Restaurant} />
+    <Route path = '/favorites' component = {Favorites} />
       </Route>
   </Router>
 )

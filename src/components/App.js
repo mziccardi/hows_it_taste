@@ -17,7 +17,8 @@ class App extends Component {
       noteHolder:[],
       favoritePlace:false,
       favoriteName:'',
-      favoritePlaces:[]
+      favoritePlaces:[],
+      favorites:{}
     }
   }
   componentDidMount(){
@@ -53,14 +54,11 @@ class App extends Component {
   }
   favorite(e){
     if(this.state.favoritePlace === false){
-      reference.ref('users/' +this.state.user.uid).child('favorites').push({
+      reference.ref('users/' +this.state.user.displayName).child(`favorites/${this.state.singleName}`).set({
         restaurantID:this.state.restaurantID,
         favorite:!this.state.favorite,
         name:this.state.singleName,
       })
-      this.setState({favoriteName:this.state.singleName})
-       this.state.favoritePlaces.push(this.state.singleName)
-      console.log(this.state.favoritePlaces)
     }else{
       this.setState({favoritePlace:false})
     }
@@ -71,12 +69,22 @@ class App extends Component {
   this.state.noteHolder.push(this.state.notes)
   }
   addNotes(e){
-    reference.ref('users/' +this.state.user.uid).child('notes').push({
+    reference.ref('users/' +this.state.user.displayName).child('notes').set({
       userID:this.state.user.uid,
       restaurantID:this.state.restaurantID,
       notes:this.state.notes,
       name:this.state.singleName,
     })
+  }
+  getFavorites(){
+    firebase.database().ref('users/' + this.state.user.displayName).on('value', (snapshot) => {
+      // const favorites = snapshot.val();
+      // console.log(favorites)
+      this.setState({
+        favorites: snapshot.val()
+      });
+    });
+
   }
   render() {
     const { places } = this.state
@@ -100,6 +108,8 @@ class App extends Component {
           favoritePlaces:this.state.favoritePlaces,
           favoriteName:this.state.favoriteName,
           createNote:this.createNote.bind(this),
+          favorites:this.state.favorites,
+          getFavorites:this.getFavorites.bind(this),
           // notes:this.state.notes,
           // noteHolder:this.state.noteHolder,
           addNotes:this.addNotes.bind(this)

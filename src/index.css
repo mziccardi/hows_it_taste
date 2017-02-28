@@ -1,18 +1,24 @@
 body{
   background-color:#F2F2F0;
+  /*background-image: url(https://i.redd.it/3d5si8f0jfiy.jpg);*/
   /*#BFF4ED;*/
 }
 .app-header{
-  width: 100%;
-  background-color:  #57bc90;
-  color:#555555;
-  height: 100px;
+  width: 100vw;
+  background-image: url(https://i.redd.it/3d5si8f0jfiy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /*background-color:  #57bc90;*/
+  color:white;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  height: 45vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .app-title{
-  font-size: 48px;
+  font-size: 72px;
 }
 .sign-in-container{
   display: flex;
