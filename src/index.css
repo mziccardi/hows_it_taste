@@ -1,46 +1,92 @@
 body{
-  background-color:#F2F2F0;
-  /*background-image: url(https://i.redd.it/3d5si8f0jfiy.jpg);*/
-  /*#BFF4ED;*/
+  background-color:black;
+
 }
 .app-header{
   width: 100vw;
   background-image: url(https://i.redd.it/3d5si8f0jfiy.jpg);
+  font-family: 'Baloo', cursive;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   /*background-color:  #57bc90;*/
   color:white;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-  height: 45vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.loading{
+  color: white;
+}
 .app-title{
   font-size: 72px;
 }
+
 .sign-in-container{
   display: flex;
   justify-content: center;
 }
+.welcome{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+
+}
 .home{
   margin-top: 25px;
   text-align: center;
-  font-size:24px;
+  font-size:48px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
 
 }
 .get-container{
   display: flex;
   justify-content: center;
 }
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+}
+.fav-btn{
+    height: 43px;
+    width: 210px;
+    margin-bottom: 10%;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+
+}
+.home-btn{
+    height: 43px;
+    width: 210px;
+    margin-bottom: 10%;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+
+
+}
 .get-restaurants{
-  height: 43px;
+  height: 15%;
   width: 210px;
   margin-top: 20px;
   border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+
+
 }
 .get-restaurants:hover{
+  background-color: #1B3C59;
+  color: white;
+}
+.fav-btn:hover{
+  background-color: #1B3C59;
+  color: white;
+}
+.home-btn:hover{
   background-color: #1B3C59;
   color: white;
 }
@@ -48,8 +94,9 @@ body{
 .sign-out{
   border: none;
   position: absolute;
+  font-family: 'Montserrat', sans-serif;
   top: 68px;
-  right: 10px;
+  right: 15%;
   height: 30px;
   width: 83px;
 }
@@ -78,29 +125,87 @@ a{
 
 }
 .restaurant-list{
-  display:flex;
-  width: 100%;
-  flex-direction:row;
-  flex-wrap: wrap;
-  justify-content: center;
+  /*display:flex;*/
+  width: 65%;
+  margin: auto;
 
 }
 .single-restaurant{
-  background-color:#BFF4ED;
-  flex-grow: 1;
+  background-color:DIMGREY;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   margin: 10px;
   padding:10px;
   border-style: solid;
   border-width: medium;
 }
+.single-restaurant:hover{
+  background-color: #1B3C59;
+
+}
+.review-container{
+  margin: auto;
+  width: 65%;
+}
+.restaurant-name{
+  color: white;
+}
 .single-review{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  background-color:DIMGREY;
   margin-bottom: 10px;
   text-align: center;
   margin: 10px;
   padding:10px;
   border-style: solid;
   border-width: thin;
+}
+.single-review:hover{
+  background-color: #1B3C59;
+
+}
+.favorite-container{
+  margin: auto;
+  width: 65%;
+}
+.single-favorite{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  background-color:DIMGREY;
+  margin-bottom: 10px;
+  text-align: center;
+  margin: 10px;
+  padding:10px;
+  border-style: solid;
+  border-width: thin;
+}
+.single-favorite:hover{
+  background-color: #1B3C59;
+
+}
+.notes-container{
+  margin: auto;
+  width: 65%;
+}
+.single-note{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  background-color:DIMGREY;
+  margin-bottom: 10px;
+  text-align: center;
+  margin: 10px;
+  padding:10px;
+  border-style: solid;
+  border-width: thin;
+}
+.single-note:hover{
+  background-color: #1B3C59;
+
+}
+.notes-page{
+  color:white;
 }
 .restaurant-name{
   text-align: center;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router'
 import firebase, { signOut } from '../firebase';
+import Navigation from './Navigation'
 
 class Restaurants extends Component {
 
@@ -34,19 +35,12 @@ class Restaurants extends Component {
     })
     return (
       <div className='restaurants-page'>
-        <Link to='/welcome'>
-          <button
-            className='sign-out'
-            onClick={() => signOut()}>
-            SIGN OUT
-          </button>
-        </Link>
+        <Navigation />
         <div className ='restaurant-container'>
       <ul  className='restaurant-list'>
          {restaurant}
       </ul>
       </div>
-        <Link to='/home'><button>Home</button></Link>
       </div>
     );
   }

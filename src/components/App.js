@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WelcomeScreen from './WelcomeScreen'
 import HomeScreen from './HomeScreen'
+import {Link} from 'react-router'
 import firebase, {reference, signIn, signOut} from '../firebase';
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
       places:{},
       restaurantID: '',
       singleName:'',
-      notes:'',
+      notes:{},
       noteHolder:[],
       favoritePlace:false,
       favoriteName:'',
@@ -69,29 +70,37 @@ class App extends Component {
   this.state.noteHolder.push(this.state.notes)
   }
   addNotes(e){
-    reference.ref('users/' +this.state.user.displayName).child('notes').set({
+    reference.ref('notes').push({
       userID:this.state.user.uid,
+      userName:this.state.user.displayName,
       restaurantID:this.state.restaurantID,
       notes:this.state.notes,
       name:this.state.singleName,
     })
   }
   getFavorites(){
+    let name = this.state.singleName
     firebase.database().ref('users/' + this.state.user.displayName).on('value', (snapshot) => {
-      // const favorites = snapshot.val();
-      // console.log(favorites)
       this.setState({
         favorites: snapshot.val()
       });
+      // console.log(this.state.favorites)
     });
-
   }
+  getNotes(){
+    firebase.database().ref('notes').on('value', (snapshot) => {
+      this.setState({
+        notes: snapshot.val()
+      });
+      console.log(this.state.notes)
+    });
+  }
+
   render() {
-    const { places } = this.state
     return (
       <div className='app'>
         <div className = 'app-header'>
-          <h1 className='app-title'>How's It Taste?</h1>
+          <h1 className='app-title'>HOW'S IT TASTE?</h1>
         </div>
         {React.cloneElement(this.props.children,{
           lat:this.state.lat,
@@ -100,7 +109,6 @@ class App extends Component {
           user:this.state.user,
           restaurantID:this.state.restaurantID,
           call:this.call.bind(this),
-          restaurantID:this.state.restaurantID,
           setIdState:this.setIdState.bind(this),
           singleName:this.state.singleName,
           favorite:this.favorite.bind(this),
@@ -110,7 +118,8 @@ class App extends Component {
           createNote:this.createNote.bind(this),
           favorites:this.state.favorites,
           getFavorites:this.getFavorites.bind(this),
-          // notes:this.state.notes,
+          notes:this.state.notes,
+          getNotes:this.getNotes.bind(this),
           // noteHolder:this.state.noteHolder,
           addNotes:this.addNotes.bind(this)
         })}

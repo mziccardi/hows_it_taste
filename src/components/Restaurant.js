@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router'
 import firebase, { reference, signIn, signOut } from '../firebase';
+import Navigation from './Navigation'
 
 class Restaurant extends Component {
   constructor(){
@@ -48,13 +49,7 @@ class Restaurant extends Component {
     })
     return (
       <div>
-        <Link to='/welcome'>
-          <button
-            className='sign-out'
-            onClick={() => signOut()}>
-            SIGN OUT
-          </button>
-        </Link>
+        <Navigation />
         <div>
         <h1 className='restaurant-name'>{this.props.singleName}</h1>
         {
@@ -62,9 +57,15 @@ class Restaurant extends Component {
         <div></div>
       }
 
-        <Link to= '/favorites'><button onClick={(e)=>this.props.favorite(e)}>Favorite?</button></Link>
+      <Link to= '/favorites'>
+        <button
+          className ='favorite-resaurant'
+          onClick={(e)=>this.props.favorite(e)}>
+            Favorite?
+        </button>
+      </Link>
         </div>
-      <ul>
+      <ul className = 'review-container'>
         {review}
       </ul>
       <input onChange = {(e)=>this.props.createNote(e)} placeholder='Add a Note'/>

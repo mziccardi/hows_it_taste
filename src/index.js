@@ -5,6 +5,8 @@ import HomeScreen from './components/HomeScreen'
 import Restaurants from './components/Restaurants'
 import Restaurant from './components/Restaurant'
 import Favorites from './components/Favorites'
+import Notes from './components/Notes'
+
 
 
 import { Router, Route, IndexRoute, browserHistory} from 'react-router'
@@ -23,6 +25,7 @@ const router = (
     <Route path = '/restaurants' component = {Restaurants} />
     <Route path = '/restaurant/reviews' component = {Restaurant} />
     <Route path = '/favorites' component = {Favorites} />
+    <Route path = '/notes' component = {Notes} />
       </Route>
   </Router>
 )
