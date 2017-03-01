@@ -17,7 +17,12 @@ class Notes extends Component {
 
   render(){
     if (!this.props.notes) {
-      return <div>NOT HERE</div>;
+      return (
+        <div>
+        <Navigation />
+        <h1 className='no-fav'>You have no notes</h1>
+        </div>
+    )
     }
 
  let noteName = Object.keys(this.props.notes).map((key) => this.props.notes[key])
@@ -38,7 +43,6 @@ class Notes extends Component {
       <div>
         <Navigation />
         <h1 className = 'notes-page'>Notes</h1>
-        <button onClick = {()=> this.debug()}>debugger</button>
         <ul className='note-container'>
           {notes}
         </ul>

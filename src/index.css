@@ -12,7 +12,7 @@ body{
   /*background-color:  #57bc90;*/
   color:white;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-  height: 50vh;
+  height: 45vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,7 +96,7 @@ body{
   position: absolute;
   font-family: 'Montserrat', sans-serif;
   top: 68px;
-  right: 15%;
+  right: 7%;
   height: 30px;
   width: 83px;
 }
@@ -150,6 +150,11 @@ a{
 }
 .restaurant-name{
   color: white;
+}
+.input-container{
+  margin: 5% 0;
+  display: flex;
+  justify-content: center;
 }
 .single-review{
   color: white;
@@ -205,10 +210,35 @@ a{
 
 }
 .notes-page{
+  text-align: center;
+  margin: 20px 0;
+  font-size: 32px;
   color:white;
 }
 .restaurant-name{
   text-align: center;
   margin: 20px 0;
   font-size: 32px;
+}
+.no-fav{
+  color: white;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 32px;
+}
+.add-note{
+  width: 30%;
+  background-color: dimgray;
+  color: white;
+  border: none;
+  font-size: 24px;
+}
+.submit{
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+}
+.make-fav{
+  display: flex;
+  justify-content: center;
 }

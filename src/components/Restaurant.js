@@ -12,10 +12,6 @@ class Restaurant extends Component {
 
     }
   }
-  debug(){
-    debugger
-  }
-
   componentDidMount(){
     const places = `https://developers.zomato.com/api/v2.1/reviews?res_id=${this.props.restaurantID}&count=10`
     fetch(places,{
@@ -49,29 +45,24 @@ class Restaurant extends Component {
     })
     return (
       <div>
-        <Navigation />
         <div>
+        <Navigation />
+        <div className ='input-container'>
+          <input className='add-note' onChange = {(e)=>this.props.createNote(e)} placeholder='Add a Note'/>
+          <button className='submit' onClick={(e)=>this.props.addNotes(e)}>Submit</button>
+        </div>
+        </div>
         <h1 className='restaurant-name'>{this.props.singleName}</h1>
-        {
-          this.props.favoritePlace ? <h4>{this.props.singleName} has been added to your favorites!</h4> :
-        <div></div>
-      }
-
-      <Link to= '/favorites'>
-        <button
-          className ='favorite-resaurant'
-          onClick={(e)=>this.props.favorite(e)}>
+        <div className ='make-fav'>
+          <button
+            className ='favorite-resaurant'
+            onClick={(e)=>this.props.favorite(e)}>
             Favorite?
-        </button>
-      </Link>
+          </button>
         </div>
       <ul className = 'review-container'>
         {review}
       </ul>
-      <input onChange = {(e)=>this.props.createNote(e)} placeholder='Add a Note'/>
-      <button onClick={(e)=>this.props.addNotes(e)}>Submit</button>
-      <button onClick={()=>this.debug()}></button>
-      <Link to='/home'><button>Home</button></Link>
     </div>
     )
   }

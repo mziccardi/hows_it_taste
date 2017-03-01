@@ -67,7 +67,7 @@ class App extends Component {
   createNote(e){
   const note = e.target.value
   this.setState({ notes:note })
-  this.state.noteHolder.push(this.state.notes)
+  
   }
   addNotes(e){
     reference.ref('notes').push({

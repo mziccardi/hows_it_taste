@@ -18,9 +18,7 @@ class Restaurants extends Component {
       <Link to ='/restaurant/reviews'>
         <div
           key={restaurant.restaurant.id}
-
           className='single-restaurant'>
-
           <div
             className ={restaurant.restaurant.name}
             id={restaurant.restaurant.id}
