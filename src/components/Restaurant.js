@@ -55,7 +55,7 @@ class Restaurant extends Component {
         <h1 className='restaurant-name'>{this.props.singleName}</h1>
         <div className ='make-fav'>
           <button
-            className ='favorite-resaurant'
+            className ='favorite-restaurant'
             onClick={(e)=>this.props.favorite(e)}>
             Favorite?
           </button>

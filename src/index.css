@@ -190,7 +190,7 @@ a{
   background-color: #1B3C59;
 
 }
-.notes-container{
+.note-container{
   margin: auto;
   width: 65%;
 }
@@ -241,4 +241,9 @@ a{
 .make-fav{
   display: flex;
   justify-content: center;
+}
+.favorite-restaurant{
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
 }
