@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router'
 import firebase, { signOut } from '../firebase';
+import Navigation from './Navigation'
 
 class Restaurants extends Component {
-
-
-  debug(){
-    debugger
-  }
 
   render(){
 
@@ -16,26 +12,33 @@ class Restaurants extends Component {
       return <div className='loading'>Loading...</div>;
     }
 
+
     let restaurant = this.props.places.restaurants.map((restaurant)=>{
       return(
-        <li onClick = {(e)=>this.props.setIdState(e)}
+      <Link to ='/restaurant/reviews'>
+        <div
           key={restaurant.restaurant.id}
-          id={restaurant.restaurant.id}
           className='single-restaurant'>
-          {restaurant.restaurant.name} <br />
+          <div
+            className ={restaurant.restaurant.name}
+            id={restaurant.restaurant.id}
+            onClick = {(e)=>this.props.setIdState(e)}
+            >{restaurant.restaurant.name}
+          </div> <br />
           {restaurant.restaurant.location.address}<br/>
-        </li>
+        </div>
+      </Link>
       )
 
     })
     return (
       <div className='restaurants-page'>
-      <ul>
-        <Link to='/restaurant'>
+        <Navigation />
+        <div className ='restaurant-container'>
+      <ul  className='restaurant-list'>
          {restaurant}
-        </Link>
       </ul>
-      <button onClick = {()=>this.debug()}> debugger </button>
+      </div>
       </div>
     );
   }
