@@ -13,6 +13,10 @@ describe('App', () => {
   const wrapper = shallow(<App children ={true} />)
   assert.equal(wrapper.type(),'div')
   })
+  it('should start with a user state of null', ()=>{
+    const wrapper = shallow(<App children={true}/>)
+    assert.equal(wrapper.state('user'),(null))
+  })
   it.skip('can call componentDidMount', () => {
     sinon.spy = (App.prototype, 'componentDidMount')
     const wrapper = mount(<App children={true} />)

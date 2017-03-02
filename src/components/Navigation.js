@@ -12,7 +12,7 @@ class Navigation extends Component {
         <button className='fav-btn'>Favorites</button>
       </Link>
       <Link to='/notes'>
-        <button className='fav-btn'>Notes</button>
+        <button className='note-btn'>Notes</button>
       </Link>
       <Link to='/welcome'>
         <button
