@@ -14,7 +14,7 @@ class App extends Component {
       places:{},
       restaurantID: '',
       singleName:'',
-      notes:{},
+      notes:'',
       noteHolder:[],
       favoritePlace:false,
       favoriteName:'',
@@ -66,8 +66,8 @@ class App extends Component {
   }
   createNote(e){
   const note = e.target.value
-  this.setState({ notes:note })
-  
+  this.setState({ notes: note })
+
   }
   addNotes(e){
     reference.ref('notes').push({
@@ -77,6 +77,7 @@ class App extends Component {
       notes:this.state.notes,
       name:this.state.singleName,
     })
+    this.setState({notes:' '})
   }
   getFavorites(){
     let name = this.state.singleName

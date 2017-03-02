@@ -17,7 +17,7 @@ describe('WelcomeScreen', () => {
     const wrapper = shallow(<WelcomeScreen children={true} />)
     assert.equal(wrapper.find('button').length,1)
   })
-  it('should sign into the app on button click', ()=>{
+  it.skip('should sign into the app on button click', ()=>{
   let signIn = sinon.spy();
   const wrapper = mount(<WelcomeScreen children = {true} signIn={signIn} />);
   wrapper.find('.sign-in').simulate('click');

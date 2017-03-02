@@ -7,10 +7,6 @@ import Navigation from './Navigation'
 
 class Favorites extends Component {
 
-
-  debug(){
-    debugger
-  }
   componentDidMount(){
     this.props.getFavorites()
   }
@@ -39,7 +35,6 @@ class Favorites extends Component {
         <ul className='favorite-container'>
           {restaurants}
         </ul>
-        <button onClick = {()=>this.debug()}>debugg</button>
       </div>
     )
   }

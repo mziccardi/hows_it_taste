@@ -48,14 +48,14 @@ class Restaurant extends Component {
         <div>
         <Navigation />
         <div className ='input-container'>
-          <input className='add-note' onChange = {(e)=>this.props.createNote(e)} placeholder='Add a Note'/>
+          <input className='add-note' value={this.props.notes}  onChange = {(e)=>this.props.createNote(e)} placeholder='Add a Note'/>
           <button className='submit' onClick={(e)=>this.props.addNotes(e)}>Submit</button>
         </div>
         </div>
         <h1 className='restaurant-name'>{this.props.singleName}</h1>
         <div className ='make-fav'>
           <button
-            className ='favorite-resaurant'
+            className ='favorite-restaurant'
             onClick={(e)=>this.props.favorite(e)}>
             Favorite?
           </button>
