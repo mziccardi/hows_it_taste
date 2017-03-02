@@ -10,6 +10,15 @@ As of Checkin 1 I am currently getting latitude and longitude to make an api cal
 
 SCREENSHOT
 
+![Imgur](http://i.imgur.com/IXb22QJ.png)
+
+![Imgur](http://i.imgur.com/gzJ5Bp5.png)
+
+![Imgur](http://i.imgur.com/KsUdrbK.png)
+
+![Imgur](http://i.imgur.com/hFxFhdr.png)
+
+
 
 Clone down this repository. You will need node and npm installed globally on your machine.
 
