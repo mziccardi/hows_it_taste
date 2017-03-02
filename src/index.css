@@ -247,6 +247,10 @@ a{
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
 }
+.favorite-restaurant:hover{
+  background-color: #1B3C59;
+  color: white;
+}
 .note-btn{
   height: 43px;
   width: 210px;
