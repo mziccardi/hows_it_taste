@@ -8,10 +8,10 @@ class Navigation extends Component {
   render(){
     return (
     <div className="nav-bar">
-      <Link to='/favorites'>
+      <Link  to='/favorites'>
         <button className='fav-btn'>Favorites</button>
       </Link>
-      <Link to='/notes'>
+      <Link className='note-btn-link' to='/notes'>
         <button className='note-btn'>Notes</button>
       </Link>
       <Link to='/welcome'>
