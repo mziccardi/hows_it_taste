@@ -1,4 +1,4 @@
-How's It Taste?
+<!-- How's It Taste?
 
 Project
 
@@ -42,4 +42,4 @@ Originally I wanted to build an application that allowed users to pull data from
 
 One of the main challenges I ran into was FIREBASE. I used the docs and previous projects as a way to understand hows the technology works, however I ams still confused about databases and how to structure them.
 
-At the end of the day, the technologies implemented in this project are React, React-Router  and a significant amount of , JSX, and CSS. I chose to use the create-react-app boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes. In the next iteration i'd like the notes to belong to the restaurant.
+At the end of the day, the technologies implemented in this project are React, React-Router  and a significant amount of , JSX, and CSS. I chose to use the create-react-app boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes. In the next iteration i'd like the notes to belong to the restaurant. -->
