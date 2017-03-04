@@ -8,8 +8,7 @@ class Restaurant extends Component {
   constructor(){
     super()
     this.state = {
-      reviews:{},
-
+      reviews:{}
     }
   }
   componentDidMount(){

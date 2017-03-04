@@ -18,10 +18,10 @@ describe('WelcomeScreen', () => {
     assert.equal(wrapper.find('button').length,1)
   })
   it.skip('should sign into the app on button click', ()=>{
-  let signIn = sinon.spy();
-  const wrapper = mount(<WelcomeScreen children = {true} signIn={signIn} />);
-  wrapper.find('.sign-in').simulate('click');
-  // expect(signIn.calledOnce,true)
-  expect(signIn).to.have.property('callCount',1)
+    let signIn = sinon.spy();
+    const wrapper = mount(<WelcomeScreen children = {true} signIn={signIn} />);
+    wrapper.find('.sign-in').simulate('click');
+    // expect(signIn.calledOnce,true)
+    expect(signIn).to.have.property('callCount',1)
 })
 })

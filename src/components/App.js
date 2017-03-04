@@ -22,6 +22,7 @@ class App extends Component {
       favorites:{}
     }
   }
+
   componentDidMount(){
     navigator.geolocation.getCurrentPosition((position)=>{
       let newLat = parseFloat(Math.round(position.coords.latitude*100)/100).toFixed(2)
@@ -31,10 +32,10 @@ class App extends Component {
       console.log(workingLat)
       console.log(workingLong)
       this.setState({lat:workingLat, long:workingLong})
-
     })
     firebase.auth().onAuthStateChanged(user=> this.setState({ user }))
   }
+
   call(){
     const places = `https://developers.zomato.com/api/v2.1/search?lat=${this.state.lat}&lon=${this.state.long}`
     fetch(places,{
@@ -45,14 +46,16 @@ class App extends Component {
     })
     .then((response)=>{
       return response.json()
-    }).then((data)=>{
+    })
+    .then((data)=>{
       this.setState({places: data })
     })
   }
+
   setIdState(e){
-    console.log(e.target.className)
     this.setState({restaurantID:e.target.id, singleName:e.target.className})
   }
+
   favorite(e){
     if(this.state.favoritePlace === false){
       reference.ref('users/' +this.state.user.displayName).child(`favorites/${this.state.singleName}`).set({
@@ -64,11 +67,12 @@ class App extends Component {
       this.setState({favoritePlace:false})
     }
   }
-  createNote(e){
-  const note = e.target.value
-  this.setState({ notes: note })
 
+  createNote(e){
+    const note = e.target.value
+    this.setState({ notes: note })
   }
+
   addNotes(e){
     reference.ref('notes').push({
       userID:this.state.user.uid,
@@ -79,6 +83,7 @@ class App extends Component {
     })
     this.setState({notes:' '})
   }
+
   getFavorites(){
     let name = this.state.singleName
     firebase.database().ref('users/' + this.state.user.displayName).on('value', (snapshot) => {
@@ -88,12 +93,12 @@ class App extends Component {
       // console.log(this.state.favorites)
     });
   }
+
   getNotes(){
     firebase.database().ref('notes').on('value', (snapshot) => {
       this.setState({
         notes: snapshot.val()
       });
-      console.log(this.state.notes)
     });
   }
 
@@ -121,7 +126,6 @@ class App extends Component {
           getFavorites:this.getFavorites.bind(this),
           notes:this.state.notes,
           getNotes:this.getNotes.bind(this),
-          // noteHolder:this.state.noteHolder,
           addNotes:this.addNotes.bind(this)
         })}
     </div>
