@@ -31,9 +31,6 @@ class Restaurant extends Component {
     if (!this.state.reviews.user_reviews) {
       return <div className='loading'>Loading...</div>;
     }
-    // if(!this.props.favorites){
-    //   return <h4>{this.props.singleName} has been added to your favorites!</h4>
-    // }
 
     let review = this.state.reviews.user_reviews.map((review)=>{
       return (
@@ -45,11 +42,11 @@ class Restaurant extends Component {
     return (
       <div>
         <div>
-        <Navigation />
-        <div className ='input-container'>
-          <input className='add-note' value={this.props.notes}  onChange = {(e)=>this.props.createNote(e)} placeholder='Add a Note'/>
-          <button className='submit' onClick={(e)=>this.props.addNotes(e)}>Submit</button>
-        </div>
+          <Navigation />
+          <div className ='input-container'>
+            <input className='add-note' value={this.props.notes}  onChange = {(e)=>this.props.createNote(e)} placeholder='Add a Note'/>
+            <button className='submit' onClick={(e)=>this.props.addNotes(e)}>Submit</button>
+          </div>
         </div>
         <h1 className='restaurant-name'>{this.props.singleName}</h1>
         <div className ='make-fav'>

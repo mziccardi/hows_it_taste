@@ -15,12 +15,12 @@ class Favorites extends Component {
     if (!this.props.favorites.favorites) {
       return (
         <div>
-        <Navigation />
-        <h1 className='no-fav'>You have to favorite a resataurant!</h1>
+          <Navigation />
+          <h1 className='no-fav'>You have to favorite a resataurant!</h1>
         </div>
-    )
+      )
     }
- let restaurantName = Object.keys(this.props.favorites.favorites).map((key) => this.props.favorites.favorites[key])
+  let restaurantName = Object.keys(this.props.favorites.favorites).map((key) => this.props.favorites.favorites[key])
   let restaurants = restaurantName.map((restaurant)=>{
     return (
       <li className ='single-favorite' >

@@ -9,10 +9,16 @@ class Navigation extends Component {
     return (
     <div className="nav-bar">
       <Link  to='/favorites'>
-        <button className='fav-btn'>Favorites</button>
+        <button
+          className='fav-btn'>
+          Favorites
+        </button>
       </Link>
       <Link className='note-btn-link' to='/notes'>
-        <button className='note-btn'>Notes</button>
+        <button
+          className='note-btn'>
+          Notes
+        </button>
       </Link>
       <Link to='/welcome'>
         <button
@@ -22,7 +28,9 @@ class Navigation extends Component {
         </button>
       </Link>
       <Link to='/home'>
-        <button className='home-btn'>Home</button>
+        <button className='home-btn'>
+          Home
+        </button>
       </Link>
     </div>
     );

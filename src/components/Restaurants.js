@@ -12,7 +12,6 @@ class Restaurants extends Component {
       return <div className='loading'>Loading...</div>;
     }
 
-
     let restaurant = this.props.places.restaurants.map((restaurant)=>{
       return(
       <Link to ='/restaurant/reviews'>
@@ -29,16 +28,16 @@ class Restaurants extends Component {
         </div>
       </Link>
       )
-
     })
+
     return (
       <div className='restaurants-page'>
         <Navigation />
         <div className ='restaurant-container'>
-      <ul  className='restaurant-list'>
-         {restaurant}
-      </ul>
-      </div>
+          <ul className='restaurant-list'>
+             {restaurant}
+          </ul>
+        </div>
       </div>
     );
   }

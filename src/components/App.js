@@ -90,7 +90,6 @@ class App extends Component {
       this.setState({
         favorites: snapshot.val()
       });
-      // console.log(this.state.favorites)
     });
   }
 

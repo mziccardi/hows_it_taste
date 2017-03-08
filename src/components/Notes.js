@@ -7,10 +7,6 @@ import Navigation from './Navigation'
 
 class Notes extends Component {
 
-
-  debug(){
-    debugger
-  }
   componentDidMount(){
     this.props.getNotes()
   }
@@ -19,23 +15,23 @@ class Notes extends Component {
     if (!this.props.notes) {
       return (
         <div>
-        <Navigation />
-        <h1 className='no-fav'>You have no notes</h1>
+          <Navigation />
+          <h1 className='no-fav'>You have no notes</h1>
         </div>
-    )
+      )
     }
 
- let noteName = Object.keys(this.props.notes).map((key) => this.props.notes[key])
+  let noteName = Object.keys(this.props.notes).map((key) => this.props.notes[key])
   let notes = noteName.map((note)=>{
     if(note.userName === this.props.user.displayName){
-    return (
-      <li className ='single-note' >
-        {note.userName}<br/>
-      {note.name}: {note.notes}
-      <br/>
-      <br/>
-      </li>
-    )
+      return (
+        <li className ='single-note' >
+          {note.userName}<br/>
+          {note.name}: {note.notes}
+          <br/>
+          <br/>
+        </li>
+      )
   }
   })
 
