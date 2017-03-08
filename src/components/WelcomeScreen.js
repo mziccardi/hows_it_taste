@@ -9,14 +9,14 @@ class WelcomeScreen extends Component {
     <div className="welcome-page">
       <h2 className='welcome' >Welcome Please Sign in!</h2>
       <Link to='/home'>
-      <div className='sign-in-container'>
-      <button
-        className='sign-in'
-        onClick={() => signIn()}>
-        SIGN IN
-      </button>
-    </div>
-    </Link>
+        <div className='sign-in-container'>
+          <button
+            className='sign-in'
+            onClick={() => signIn()}>
+            SIGN IN
+          </button>
+        </div>
+      </Link>
     </div>
     );
   }
